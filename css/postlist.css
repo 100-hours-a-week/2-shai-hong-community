@@ -22,6 +22,20 @@ body {
   height: 80px;
   border-bottom: 2px solid gray;
 }
+.avatar {
+  position: absolute;
+  right: 35%;
+  top: 2%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: skyblue;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  font-size: 25px;
+}
 #prevBtn {
   position: absolute;
   left: 35%;
