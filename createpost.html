@@ -8,7 +8,7 @@
   </head>
   <body>
     <header class="header">
-      <a href="./login.html"><img id="prevBtn" src="./img/left-arrow.png" /></a>
+      <a href="./postlist.html"><img id="prevBtn" src="./img/left-arrow.png" /></a>
       <h1 class="title">커뮤니티 서비스</h1>
       <a href="./editprofile.html"><div class="avatar">s</div></a>
     </header>
@@ -23,10 +23,11 @@
         <textarea id="content" name="content" rows="20" placeholder="내용을 입력해주세요" required></textarea>
 
         <label>이미지*</label>
-        <input type="file" id="imageinput" name="image" accept="image/*" />
+        <input type="file" id="imageInput" name="image" accept="image/*" />
 
-        <button type="submit">완료</button>
+        <button id="createPostButton" type="submit" disabled>완료</button>
       </form>
     </div>
+    <script src="./js/createpost.js"></script>
   </body>
 </html>

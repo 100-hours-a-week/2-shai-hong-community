@@ -76,6 +76,10 @@ h1 {
   cursor: pointer;
 }
 
+.write-btn:hover {
+  background-color: #7f6aee;
+}
+
 .post-list {
   margin-top: 50px;
   display: flex;

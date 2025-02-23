@@ -92,13 +92,16 @@ textarea {
   resize: none;
 }
 
-button {
+#createPostButton {
   width: 80%;
   margin-top: 30px;
   padding: 10px;
-  background-color: #b291ff;
-  color: white;
+  background-color: '#ACAOEB';
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.active {
+  background-color: pink;
+  color: white;
 }
