@@ -69,3 +69,12 @@ body {
   text-decoration: none;
   color: black;
 }
+.error-message {
+  display: none;
+  text-align: start;
+  font-size: 10px;
+  color: red;
+}
+.error-on {
+  display: block;
+}

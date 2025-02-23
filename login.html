@@ -14,8 +14,9 @@
       <h2>로그인</h2>
       <form id="loginForm">
         <input type="email" id="email" placeholder="이메일을 입력하세요" required />
+        <p class="error-message" id="error1">*올바른 이메일 형식을 입력해주세요</p>
         <input type="password" id="password" placeholder="비밀번호을 입력하세요" required />
-        <p id="error-message" class="error"></p>
+        <p class="error-message" id="error2">*비밀번호는 8자 이상 20자 이하 (대문자 소문자 숫자 특수문자)가 최소 1개 포함해야합니다.</p>
         <button id="loginButton" type="submit" disabled>로그인</button>
       </form>
       <div class="signup">
