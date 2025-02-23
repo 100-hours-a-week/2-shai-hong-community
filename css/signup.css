@@ -36,14 +36,15 @@ body {
 .signup-container h2 {
   margin-bottom: 20px;
 }
-.signupForm {
+#signupForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .upload-circle {
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,16 +56,25 @@ body {
   overflow: hidden;
   border: 2px solid #aaa;
   font-size: 50px;
+  background-size: 110px 110px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.has-image {
+  border: none;
+  font-size: 0;
 }
 .signup-container input {
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 .textInput {
+  margin-top: 10px;
   width: 100%;
+  font-size: 13px;
   text-align: start;
   font-weight: bold;
 }
@@ -75,7 +85,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .login {
   margin-top: 15px;
@@ -84,4 +94,18 @@ body {
 .login a {
   text-decoration: none;
   color: black;
+}
+.error-message {
+  display: none;
+  width: 100%;
+  text-align: start;
+  font-size: 10px;
+  color: red;
+}
+.error-on {
+  display: block;
+}
+.active {
+  background-color: pink;
+  color: white;
 }

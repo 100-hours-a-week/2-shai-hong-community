@@ -51,6 +51,7 @@ passwordInput.addEventListener('input', validatePassword);
 loginForm.addEventListener('submit', function (event) {
   event.preventDefault();
   if (emailCheck && passwordCheck) {
+    window.alert('로그인 성공');
     window.location.replace('../postlist.html');
   }
 });
