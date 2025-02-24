@@ -4,6 +4,10 @@ const contentInput = document.getElementById('content');
 const imageInput = document.getElementById('imageInput');
 const createButton = document.getElementById('createPostButton');
 
+const dropdownButton = document.querySelector('.dropdown-button');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+let open = false;
 let titleCheck = false;
 let contentCheck = false;
 
@@ -30,5 +34,16 @@ postForm.addEventListener('submit', function (event) {
   if (titleCheck && contentCheck) {
     window.alert('게시물 생성 성공');
     window.location.replace('../postlist.html');
+  }
+});
+
+// 드롭다운 열기/닫기
+dropdownButton.addEventListener('click', function () {
+  if (!open) {
+    dropdownMenu.classList.add('show');
+    open = true;
+  } else {
+    dropdownMenu.classList.remove('show');
+    open = false;
   }
 });

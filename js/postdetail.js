@@ -4,9 +4,12 @@ const openPostModalButton = document.getElementById('openPostModal');
 const openCommentModalButton = document.getElementById('openCommentModal');
 const closeModalButtons = document.querySelectorAll('.closeModal');
 const likeButton = document.getElementById('like');
+const dropdownButton = document.querySelector('.dropdown-button');
+const dropdownMenu = document.querySelector('.dropdown-menu');
 
 let like = 12;
 let flag = false;
+let open = false;
 
 document.getElementById('like').innerText = `🤍 ${like}`;
 
@@ -38,4 +41,15 @@ closeModalButtons.forEach((closeButton) => {
     deletePostModal.style.display = 'none';
     deleteCommentModal.style.display = 'none';
   });
+});
+
+// 드롭다운 열기/닫기
+dropdownButton.addEventListener('click', function () {
+  if (!open) {
+    dropdownMenu.classList.add('show');
+    open = true;
+  } else {
+    dropdownMenu.classList.remove('show');
+    open = false;
+  }
 });

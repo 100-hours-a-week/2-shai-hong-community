@@ -3,11 +3,14 @@ const titleInput = document.getElementById('title');
 const contentInput = document.getElementById('content');
 const imageInput = document.getElementById('imageInput');
 const editButton = document.getElementById('editPostButton');
+const dropdownButton = document.querySelector('.dropdown-button');
+const dropdownMenu = document.querySelector('.dropdown-menu');
 
 titleInput.value = '자전거를 탄 풍경';
 contentInput.value =
   '자전거를 타는 귀요미자전거를 타는 귀요미자전거를 타는 귀요미자전거를 타는 귀요미자전거를 타는 귀요미자전거를 타는 귀요미자전거를 타는 귀요미';
 
+let open = false;
 let titleCheck = false;
 let contentCheck = false;
 
@@ -34,5 +37,16 @@ editpostForm.addEventListener('submit', function (event) {
   if (titleCheck && contentCheck) {
     window.alert('게시물 수정 성공');
     window.location.replace('../postlist.html');
+  }
+});
+
+// 드롭다운 열기/닫기
+dropdownButton.addEventListener('click', function () {
+  if (!open) {
+    dropdownMenu.classList.add('show');
+    open = true;
+  } else {
+    dropdownMenu.classList.remove('show');
+    open = false;
   }
 });
