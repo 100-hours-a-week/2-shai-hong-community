@@ -9,3 +9,9 @@ export function checkpasswordPattern(password) {
   const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
   return passwordPattern.test(password);
 }
+
+// 닉네임 검증 함수
+export function checknicknamePattern(nickname) {
+  const nicknamePattern = /^[^\s]{1,10}$/;
+  return nicknamePattern.test(nickname);
+}

@@ -1,4 +1,4 @@
-import { checkemailPattern, checkpasswordPattern } from './function/validation.js';
+import { checkemailPattern, checkpasswordPattern, checknicknamePattern } from './function/validation.js';
 
 const signupForm = document.getElementById('signupForm');
 const imageInput = document.getElementById('imageInput');
@@ -76,8 +76,7 @@ function validatePasswordSame() {
 }
 
 function validateNickname() {
-  const nicknamePattern = /^[^\s]{1,10}$/;
-  nicknameCheck = nicknamePattern.test(nicknameInput.value);
+  nicknameCheck = checknicknamePattern(nicknameInput.value);
 
   if (nicknameCheck) {
     nicknameError.classList.remove('error-on');
