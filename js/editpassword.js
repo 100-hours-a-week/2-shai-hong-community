@@ -1,3 +1,5 @@
+import { checkpasswordPattern } from './function/validation.js';
+
 const editPasswordForm = document.getElementById('editPasswordForm');
 const passwordInput = document.getElementById('password');
 const passwordSameInput = document.getElementById('passwordsame');
@@ -8,8 +10,7 @@ let passwordCheck = false;
 let passwordSameCheck = false;
 
 function validatePassword() {
-  const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,20}$/; // 비번정규식
-  passwordCheck = passwordPattern.test(passwordInput.value);
+  passwordCheck = checkpasswordPattern(passwordInput.value);
 
   if (passwordCheck) {
     passwordError.classList.remove('error-on');
