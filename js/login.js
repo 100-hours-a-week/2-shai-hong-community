@@ -1,3 +1,5 @@
+import { checkemailPattern, checkpasswordPattern } from './function/validation.js';
+
 const loginForm = document.getElementById('loginForm');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
@@ -9,8 +11,7 @@ let emailCheck = false;
 let passwordCheck = false;
 
 function validateEmail() {
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i; // 이메일 정규식
-  emailCheck = emailPattern.test(emailInput.value);
+  emailCheck = checkemailPattern(emailInput.value);
 
   if (emailCheck) {
     emailError.classList.remove('error-on');
@@ -22,8 +23,7 @@ function validateEmail() {
 }
 
 function validatePassword() {
-  const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,20}$/; // 비번정규식
-  passwordCheck = passwordPattern.test(passwordInput.value);
+  passwordCheck = checkpasswordPattern(passwordInput.value);
 
   if (passwordCheck) {
     passwordError.classList.remove('error-on');
