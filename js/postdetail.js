@@ -8,17 +8,17 @@ const dropdownButton = document.querySelector('.dropdown-button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 
 let like = 12;
-let flag = false;
+let isLike = false;
 
 document.getElementById('like').innerText = `🤍 ${like}`;
 
 likeButton.addEventListener('click', function () {
-  if (!flag) {
-    flag = true;
+  if (!isLike) {
+    isLike = true;
     like++;
     document.getElementById('like').innerText = `❤️ ${like}`;
   } else {
-    flag = false;
+    isLike = false;
     like--;
     document.getElementById('like').innerText = `🤍 ${like}`;
   }
