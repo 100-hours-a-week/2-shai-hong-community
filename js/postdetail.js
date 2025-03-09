@@ -9,7 +9,6 @@ const dropdownMenu = document.querySelector('.dropdown-menu');
 
 let like = 12;
 let flag = false;
-let open = false;
 
 document.getElementById('like').innerText = `🤍 ${like}`;
 
@@ -41,15 +40,4 @@ closeModalButtons.forEach((closeButton) => {
     deletePostModal.style.display = 'none';
     deleteCommentModal.style.display = 'none';
   });
-});
-
-// 드롭다운 열기/닫기
-dropdownButton.addEventListener('click', function () {
-  if (!open) {
-    dropdownMenu.classList.add('show');
-    open = true;
-  } else {
-    dropdownMenu.classList.remove('show');
-    open = false;
-  }
 });
