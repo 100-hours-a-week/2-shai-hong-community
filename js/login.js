@@ -17,17 +17,13 @@ let passwordCheck = false;
 
 function validateEmail() {
   emailCheck = checkemailPattern(emailInput.value);
-
   toggleError(emailError, emailCheck);
-
   updateLoginButton();
 }
 
 function validatePassword() {
   passwordCheck = checkpasswordPattern(passwordInput.value);
-
   toggleError(passwordError, passwordCheck);
-
   updateLoginButton();
 }
 
