@@ -1,5 +1,9 @@
-import { checkemailPattern, checkpasswordPattern } from "./util/validation.js";
-import { storeData } from "./util/storedata.js";
+import {
+  checkemailPattern,
+  checkpasswordPattern,
+  toggleError,
+} from "./util/validation.js";
+import { loginfetch } from "./util/datafetch.js";
 
 const loginForm = document.getElementById("loginForm");
 const emailInput = document.getElementById("email");
@@ -14,11 +18,7 @@ let passwordCheck = false;
 function validateEmail() {
   emailCheck = checkemailPattern(emailInput.value);
 
-  if (emailCheck) {
-    emailError.classList.remove("error-on");
-  } else {
-    emailError.classList.add("error-on");
-  }
+  toggleError(emailError, emailCheck);
 
   updateLoginButton();
 }
@@ -26,11 +26,7 @@ function validateEmail() {
 function validatePassword() {
   passwordCheck = checkpasswordPattern(passwordInput.value);
 
-  if (passwordCheck) {
-    passwordError.classList.remove("error-on");
-  } else {
-    passwordError.classList.add("error-on");
-  }
+  toggleError(passwordError, passwordCheck);
 
   updateLoginButton();
 }
@@ -45,25 +41,6 @@ function updateLoginButton() {
     loginButton.setAttribute("disabled", "true");
   }
 }
-
-const loginfetch = async (loginData) => {
-  try {
-    const response = await fetch("http://localhost:8080/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: loginData,
-    });
-
-    const result = await response.json();
-    storeData("user", result);
-    window.location.replace("../postlist.html");
-  } catch (err) {
-    console.log(err);
-    window.alert("로그인 실패");
-  }
-};
 
 emailInput.addEventListener("input", validateEmail);
 passwordInput.addEventListener("input", validatePassword);

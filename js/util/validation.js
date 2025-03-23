@@ -15,3 +15,12 @@ export function checknicknamePattern(nickname) {
   const nicknamePattern = /^[^\s]{1,10}$/;
   return nicknamePattern.test(nickname);
 }
+
+// 유효성 검증 UI변경 함수
+export function toggleError(element, isValid) {
+  if (!isValid) {
+    element.classList.add("error-on");
+  } else {
+    element.classList.remove("error-on");
+  }
+}

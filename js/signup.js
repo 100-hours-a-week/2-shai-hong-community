@@ -1,17 +1,21 @@
-import { checkemailPattern, checkpasswordPattern, checknicknamePattern } from './function/validation.js';
+import {
+  checkemailPattern,
+  checkpasswordPattern,
+  checknicknamePattern,
+} from "./util/validation.js";
 
-const signupForm = document.getElementById('signupForm');
-const imageInput = document.getElementById('imageInput');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const passwordSameInput = document.getElementById('passwordsame');
-const nicknameInput = document.getElementById('nickname');
-const imageLabel = document.getElementById('imageLabel');
-const imageError = document.getElementById('error1');
-const emailError = document.getElementById('error2');
-const passwordError = document.getElementById('error3');
-const passwordSameError = document.getElementById('error4');
-const nicknameError = document.getElementById('error5');
+const signupForm = document.getElementById("signupForm");
+const imageInput = document.getElementById("imageInput");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const passwordSameInput = document.getElementById("passwordsame");
+const nicknameInput = document.getElementById("nickname");
+const imageLabel = document.getElementById("imageLabel");
+const imageError = document.getElementById("error1");
+const emailError = document.getElementById("error2");
+const passwordError = document.getElementById("error3");
+const passwordSameError = document.getElementById("error4");
+const nicknameError = document.getElementById("error5");
 
 let imageCheck = false;
 let emailCheck = false;
@@ -22,17 +26,17 @@ let nicknameCheck = false;
 function validateImage(event) {
   imageCheck = event.target.files[0];
   if (imageCheck) {
-    imageError.classList.remove('error-on');
+    imageError.classList.remove("error-on");
     const reader = new FileReader();
 
     reader.onload = function (e) {
       imageLabel.style.backgroundImage = `url(${e.target.result})`;
-      imageLabel.classList.add('has-image');
+      imageLabel.classList.add("has-image");
     };
 
     reader.readAsDataURL(imageCheck);
   } else {
-    imageError.classList.add('error-on');
+    imageError.classList.add("error-on");
   }
 
   updateSignUpButton();
@@ -42,9 +46,9 @@ function validateEmail() {
   emailCheck = checkemailPattern(emailInput.value);
 
   if (emailCheck) {
-    emailError.classList.remove('error-on');
+    emailError.classList.remove("error-on");
   } else {
-    emailError.classList.add('error-on');
+    emailError.classList.add("error-on");
   }
 
   updateSignUpButton();
@@ -54,9 +58,9 @@ function validatePassword() {
   passwordCheck = checkpasswordPattern(passwordInput.value);
 
   if (passwordCheck) {
-    passwordError.classList.remove('error-on');
+    passwordError.classList.remove("error-on");
   } else {
-    passwordError.classList.add('error-on');
+    passwordError.classList.add("error-on");
   }
 
   updateSignUpButton();
@@ -64,12 +68,13 @@ function validatePassword() {
 
 function validatePasswordSame() {
   console.log(passwordSameInput.value, passwordInput.value);
-  passwordSameCheck = passwordInput.value === passwordSameInput.value ? true : false;
+  passwordSameCheck =
+    passwordInput.value === passwordSameInput.value ? true : false;
 
   if (passwordSameCheck) {
-    passwordSameError.classList.remove('error-on');
+    passwordSameError.classList.remove("error-on");
   } else {
-    passwordSameError.classList.add('error-on');
+    passwordSameError.classList.add("error-on");
   }
 
   updateSignUpButton();
@@ -79,34 +84,46 @@ function validateNickname() {
   nicknameCheck = checknicknamePattern(nicknameInput.value);
 
   if (nicknameCheck) {
-    nicknameError.classList.remove('error-on');
+    nicknameError.classList.remove("error-on");
   } else {
-    nicknameError.classList.add('error-on');
+    nicknameError.classList.add("error-on");
   }
 
   updateSignUpButton();
 }
 
-imageInput.addEventListener('change', validateImage);
-emailInput.addEventListener('input', validateEmail);
-passwordInput.addEventListener('input', validatePassword);
-passwordSameInput.addEventListener('input', validatePasswordSame);
-nicknameInput.addEventListener('input', validateNickname);
+imageInput.addEventListener("change", validateImage);
+emailInput.addEventListener("input", validateEmail);
+passwordInput.addEventListener("input", validatePassword);
+passwordSameInput.addEventListener("input", validatePasswordSame);
+nicknameInput.addEventListener("input", validateNickname);
 
 function updateSignUpButton() {
-  if (imageCheck && emailCheck && passwordCheck && passwordSameCheck && nicknameCheck) {
-    signupButton.classList.add('active');
-    signupButton.removeAttribute('disabled');
+  if (
+    imageCheck &&
+    emailCheck &&
+    passwordCheck &&
+    passwordSameCheck &&
+    nicknameCheck
+  ) {
+    signupButton.classList.add("active");
+    signupButton.removeAttribute("disabled");
   } else {
-    signupButton.classList.remove('active');
-    signupButton.setAttribute('disabled', 'true');
+    signupButton.classList.remove("active");
+    signupButton.setAttribute("disabled", "true");
   }
 }
 
-signupForm.addEventListener('submit', function (event) {
+signupForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  if (imageCheck && emailCheck && passwordCheck && passwordSameCheck && nicknameCheck) {
-    window.alert('회원가입 성공');
-    window.location.replace('../login.html');
+  if (
+    imageCheck &&
+    emailCheck &&
+    passwordCheck &&
+    passwordSameCheck &&
+    nicknameCheck
+  ) {
+    window.alert("회원가입 성공");
+    window.location.replace("../login.html");
   }
 });
